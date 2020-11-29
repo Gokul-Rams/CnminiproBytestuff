@@ -60,7 +60,7 @@ public class recycleradapter extends RecyclerView.Adapter<recycleradapter.myview
 
     @Override
     public int getItemViewType(int position) {
-        if(position==0 || position==(meslist.size()-1))
+        if(position==0 || position==((meslist.size())-1))
         {
             return 1;
         }

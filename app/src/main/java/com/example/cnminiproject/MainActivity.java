@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 "In byte stuffing, a special byte called the escape character (ESC) is stuffed before every byte in the message with the same pattern as the flag byte. If the ESC sequence is found in the message byte, then another ESC byte is stuffed before it.";
         tvcontent2.setText(temp);
 
-        temp = "ErajaGanapathi\n" +
-                "Akshy Kumar Bhiva Mota\n" +
+        temp = "Eraja Ganapathy M\n" +
+                "Akshykumar Bhiva Mote B\n" +
                 "Arwin prakadis R S\n" +
                 "Gokul S\n" +
                 "Gokul R";

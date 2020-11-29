@@ -75,8 +75,8 @@ public class FrameddataActivity extends AppCompatActivity {
         }
         if(!binaryflag)
         {
-            meslits.add(flag);
             meslits.add("trailer");
+            meslits.add(flag);
         }
         else {
             meslits.add("trailer");
