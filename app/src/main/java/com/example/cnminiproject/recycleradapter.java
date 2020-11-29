@@ -30,6 +30,8 @@ public class recycleradapter extends RecyclerView.Adapter<recycleradapter.myview
         View view = LayoutInflater.from(parentcontext).inflate(R.layout.customrecyclerlayout,parent,false);
         TextView tvtemp;
         tvtemp = view.findViewById(R.id.tvframebit);
+        TextView stuffbit;
+        stuffbit = view.findViewById(R.id.tvstuffedbyte);
         switch (viewType)
         {
             case 1:tvtemp.setBackgroundColor(Color.parseColor("#11F1E2"));
@@ -38,6 +40,7 @@ public class recycleradapter extends RecyclerView.Adapter<recycleradapter.myview
                 break;
             case 3:tvtemp.setBackgroundColor(Color.parseColor("#000000"));
                    tvtemp.setTextColor(Color.WHITE);
+                   stuffbit.setVisibility(View.VISIBLE);
                 break;
             case 4:tvtemp.setBackgroundColor(Color.parseColor("#F1F911"));
                 break;
@@ -88,9 +91,11 @@ public class recycleradapter extends RecyclerView.Adapter<recycleradapter.myview
     class myviewholder extends RecyclerView.ViewHolder{
 
         TextView tvframebit;
+        TextView tvstuffbyte;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             tvframebit = itemView.findViewById(R.id.tvframebit);
+            tvstuffbyte = itemView.findViewById(R.id.tvstuffedbyte);
         }
     }
 }

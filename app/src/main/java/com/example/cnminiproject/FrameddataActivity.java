@@ -31,7 +31,58 @@ public class FrameddataActivity extends AppCompatActivity {
         frame = findViewById(R.id.recyclerframeddata);
 
         meslits = new ArrayList<>();
-        meslits.addAll(Arrays.asList(new String[]{"#","header", "a", "b", "ESC", "#", "d", "c","ESC","ESC","trailer", "#"}));
+
+
+        char[] flagarr = flag.toCharArray();
+        char[] arr = mes.toCharArray();
+        if(!binaryflag)
+        {
+            meslits.add(flag);
+            meslits.add("header");
+        }
+        else {
+            meslits.add(flag + " - " + Integer.toBinaryString(flagarr[0]));
+            meslits.add("header");
+        }
+        for(int i=0;i<arr.length;i++)
+        {
+            if(!binaryflag) {
+                if (arr[i] == flagarr[0]) {
+                    meslits.add("ESC");
+                    meslits.add("" + arr[i]);
+                }else if(arr[i] == '|')
+                {
+                    meslits.add("ESC");
+                    meslits.add("ESC(|)");
+                }
+                else {
+                    meslits.add("" + arr[i]);
+                }
+            }
+            else {
+                if (arr[i] == flagarr[0]) {
+                    meslits.add("ESC");
+                    meslits.add("" + arr[i] + " - " + Integer.toBinaryString(arr[i]));
+                }else if(arr[i] == '|')
+                {
+                    meslits.add("ESC");
+                    meslits.add("ESC(|)");
+                }
+                else {
+                    meslits.add("" + arr[i] + " - " +Integer.toBinaryString(arr[i]));
+                }
+            }
+        }
+        if(!binaryflag)
+        {
+            meslits.add(flag);
+            meslits.add("trailer");
+        }
+        else {
+            meslits.add("trailer");
+            meslits.add(flag + " - " + Integer.toBinaryString(flagarr[0]));
+        }
+
 
         recycleradapter adap = new recycleradapter(meslits,"#",this);
 
