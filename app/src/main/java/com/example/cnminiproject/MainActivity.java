@@ -3,6 +3,7 @@ package com.example.cnminiproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -72,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.openstuffbytemenu){
-
+            Intent intent = new Intent(MainActivity.this,getdataActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
