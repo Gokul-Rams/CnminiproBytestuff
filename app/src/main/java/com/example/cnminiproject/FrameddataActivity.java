@@ -1,10 +1,14 @@
 package com.example.cnminiproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -84,9 +88,26 @@ public class FrameddataActivity extends AppCompatActivity {
         }
 
 
-        recycleradapter adap = new recycleradapter(meslits,"#",this);
+        recycleradapter adap = new recycleradapter(meslits,flag,this);
 
         frame.setAdapter(adap);
         frame.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.receivermenu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.receiver){
+            Intent intent = new Intent(FrameddataActivity.this,ReceiverActivity.class);
+            intent.putExtra("flag",flag);
+            intent.putExtra("mes",mes);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
